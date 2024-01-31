@@ -20,7 +20,7 @@ const Dashboard = () => {
         <DashSidebar />
       </div>
       {/* Profile */}
-      <div>{tab === "profile" && <DashProfile />}</div>
+      {tab === "profile" && <DashProfile />}
     </div>
   );
 };
