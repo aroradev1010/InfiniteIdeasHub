@@ -46,11 +46,11 @@ export default function DashSidebar() {
       <Sidebar.Items>
         <Sidebar.ItemGroup className="flex flex-col gap-1">
           {/* {currentUser && currentUser.isAdmin && (
-            <Link to='/dashboard?tab=dash'>
+            <Link to="/dashboard?tab=dash">
               <Sidebar.Item
-                active={tab === 'dash' || !tab}
+                active={tab === "dash" || !tab}
                 icon={HiChartPie}
-                as='div'
+                as="div"
               >
                 Dashboard
               </Sidebar.Item>
@@ -60,25 +60,25 @@ export default function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              //   label={currentUser.isAdmin ? "Admin" : "User"}
+                label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
               as="div"
             >
               Profile
             </Sidebar.Item>
           </Link>
-          {/* {currentUser.isAdmin && (
-            <Link to='/dashboard?tab=posts'>
+          {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=posts">
               <Sidebar.Item
-                active={tab === 'posts'}
+                active={tab === "posts"}
                 icon={HiDocumentText}
-                as='div'
+                as="div"
               >
                 Posts
               </Sidebar.Item>
             </Link>
           )}
-          {currentUser.isAdmin && (
+          {/* {currentUser.isAdmin && (
             <>
               <Link to='/dashboard?tab=users'>
                 <Sidebar.Item
@@ -99,7 +99,7 @@ export default function DashSidebar() {
                 </Sidebar.Item>
               </Link>
             </>
-          )} */}
+          )}  */}
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"
