@@ -12,10 +12,11 @@ import { Link, useLocation } from "react-router-dom";
 // import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { signoutSuccess } from "../redux/user/userSlice";
 
 export default function DashSidebar() {
   const location = useLocation();
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const [tab, setTab] = useState("");
   useEffect(() => {
@@ -25,21 +26,21 @@ export default function DashSidebar() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
-  //   const handleSignout = async () => {
-  //     try {
-  //       const res = await fetch('/api/user/signout', {
-  //         method: 'POST',
-  //       });
-  //       const data = await res.json();
-  //       if (!res.ok) {
-  //         console.log(data.message);
-  //       } else {
-  //         dispatch(signoutSuccess());
-  //       }
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
+
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else dispatch(signoutSuccess());
+    } catch (error) {}
+  };
   return (
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
@@ -59,7 +60,7 @@ export default function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-            //   label={currentUser.isAdmin ? "Admin" : "User"}
+              //   label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
               as="div"
             >
@@ -102,7 +103,7 @@ export default function DashSidebar() {
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"
-            // onClick={handleSignout}
+            onClick={handleSignout}
           >
             Sign Out
           </Sidebar.Item>
