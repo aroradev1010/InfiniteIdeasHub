@@ -233,7 +233,7 @@ export default function DashProfile() {
           type="submit"
           gradientDuoTone="purpleToBlue"
           outline
-          // disabled={loading || imageFileUploading}
+          disabled={loading || imageFileUploading}
         >
           {loading ? "Loading..." : "Update"}
         </Button>
