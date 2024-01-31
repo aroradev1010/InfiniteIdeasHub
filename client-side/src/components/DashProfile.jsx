@@ -108,7 +108,7 @@ export default function DashProfile() {
   };
 
   const handleSubmit = async (e) => {
-    setFormData({});
+    // setFormData({});
     e.preventDefault();
     setImageFileUploadError(null);
     setUpdateUserError(null);
