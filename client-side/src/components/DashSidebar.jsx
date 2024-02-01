@@ -60,7 +60,7 @@ export default function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-                label={currentUser.isAdmin ? "Admin" : "User"}
+              label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
               as="div"
             >
@@ -78,28 +78,28 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
-          {/* {currentUser.isAdmin && (
+          {currentUser.isAdmin && (
             <>
-              <Link to='/dashboard?tab=users'>
+              <Link to="/dashboard?tab=users">
                 <Sidebar.Item
-                  active={tab === 'users'}
+                  active={tab === "users"}
                   icon={HiOutlineUserGroup}
-                  as='div'
+                  as="div"
                 >
                   Users
                 </Sidebar.Item>
               </Link>
-              <Link to='/dashboard?tab=comments'>
+              <Link to="/dashboard?tab=comments">
                 <Sidebar.Item
-                  active={tab === 'comments'}
+                  active={tab === "comments"}
                   icon={HiAnnotation}
-                  as='div'
+                  as="div"
                 >
                   Comments
                 </Sidebar.Item>
               </Link>
             </>
-          )}  */}
+          )}
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"
