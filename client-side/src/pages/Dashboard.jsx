@@ -27,6 +27,8 @@ const Dashboard = () => {
       {tab === "posts" && <DashPosts />}
       {/* users */}
       {tab === "users" && <DashUsers />}
+      {/* comments */}
+      {tab === "comments" && <DashUsers />}
     </div>
   );
 };
