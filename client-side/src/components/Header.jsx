@@ -28,10 +28,39 @@ const Header = () => {
     } catch (error) {}
   };
   return (
-    <Navbar className="border-b-2">
+    // <div className="pt-5 px-5 flex justify-between">
+    //   <div className="logo text-[15px]">
+    //     <h1>The Blog</h1>
+    //   </div>
+    //   <div className="navbarLinks flex text-[15px] items-center gap-10">
+    //     <h3>Blog</h3>
+    //     <h3>About</h3>
+    //     <h3>Projects</h3>
+    //     <div
+    //       className="w-[70px] h-10 bg-white rounded-[40px] flex justify-between items-center px-2 cursor-pointer"
+    //       onClick={() => dispatch(toggleTheme())}
+    //     >
+    //       <span
+    //         className={`flex text-[15px] text-[rgb(9,13,31)] transition ease-in-out ${
+    //           theme === "light" ? "order-1" : ""
+    //         }`}
+    //       >
+    //         <FaSun />
+    //       </span>
+    //       <span
+    //         className={`flex text-[15px] text-[rgb(9,13,31)] transition ease-in-out ${
+    //           theme === "dark" ? "order-1" : ""
+    //         }`}
+    //       >
+    //         <FaMoon />
+    //       </span>
+    //     </div>
+    //   </div>
+    // </div>
+    <Navbar className="dark:bg-[rgb(9,13,31)] pt-5">
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+        className=" self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
           Sahand's
@@ -39,28 +68,19 @@ const Header = () => {
         Blog
       </Link>
       {/* <form onSubmit={handleSubmit}> */}
-      <TextInput
+      {/* <TextInput
         type="text"
         placeholder="Search..."
         rightIcon={AiOutlineSearch}
         className="hidden lg:inline"
-        // value={searchTerm}
-        // onChange={(e) => setSearchTerm(e.target.value)}
-      />
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      /> */}
       {/* </form> */}
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
+      {/* <Button className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
-      </Button>
-      <div className="flex gap-2 md:order-2">
-        <Button
-          className="w-12 h-10 hidden sm:inline"
-          color="gray"
-          pill
-          onClick={() => dispatch(toggleTheme())}
-        >
-          {theme === "light" ? <FaSun /> : <FaMoon />}
-        </Button>
-
+      </Button> */}
+      <div className="flex gap-5 md:order-2 items-center">
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
@@ -80,6 +100,16 @@ const Header = () => {
             </Link>
             <Dropdown.Divider />
             <Dropdown.Item onClick={handleSignOut}>Sign out</Dropdown.Item>
+            <Dropdown.Divider />
+            <div className="pl-4 py-3">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  onChange={() => dispatch(toggleTheme())}
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
           </Dropdown>
         ) : (
           <Link to="/sign-in">
@@ -91,15 +121,24 @@ const Header = () => {
 
         <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
-        <Navbar.Link active={path === "/"} as={"div"}>
-          <Link to="/">Home</Link>
+      <Navbar.Collapse className="">
+        <Navbar.Link as={"div"} className="text-[12px]">
+          <Link className={path === "/" ? "activeLink " : ""} to="/">
+            Blog
+          </Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/about"} as={"div"}>
-          <Link to="/about">About</Link>
+        <Navbar.Link as={"div"} className="text-[12px]">
+          <Link className={path === "/about" ? "activeLink" : ""} to="/about">
+            About
+          </Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/projects"} as={"div"}>
-          <Link to="/projects">Projects</Link>
+        <Navbar.Link className="text-[12px]" as={"div"}>
+          <Link
+            className={path === "/projects" ? "activeLink" : ""}
+            to="/projects"
+          >
+            Projects
+          </Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
