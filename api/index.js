@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 dotenv.config();
 
@@ -19,6 +20,16 @@ mongoose
   });
 
 const app = express();
+
+app.use(
+  cors({
+    origin:
+      "https://65c1145e587e100e74966350--resplendent-starship-200f32.netlify.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 204,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
