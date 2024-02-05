@@ -23,7 +23,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://infinite-ideas-hub-frontend.vercel.app",
+    origin: "https://infinite-ideas-hub.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
