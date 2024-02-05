@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://infinite-ideas-hub.vercel.app",
+        target: "http://localhost:3000",
         secure: false,
       },
     },
