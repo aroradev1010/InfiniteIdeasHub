@@ -1,13 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../css/singlepost.css";
 import { timeSince } from "../utils/FormatDate.js";
 const SinglePost = ({ post }) => {
-  const formattedDate = new Date(post.createdAt).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">

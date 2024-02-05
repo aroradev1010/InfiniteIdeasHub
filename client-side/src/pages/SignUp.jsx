@@ -1,4 +1,3 @@
-import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
@@ -90,7 +89,7 @@ export default function SignUp() {
           </div>
 
           <button type="submit" class="form-submit-btn">
-            Sign In
+            {loading ? <>loading....</> : <>Sign Up</>}
           </button>
           {errorMessage && (
             <div

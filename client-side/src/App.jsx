@@ -1,12 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
-import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import CreatePost from "./pages/CreatePost";
@@ -23,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/*" element={<ErrorPage />} />
@@ -46,7 +44,6 @@ function App() {
         </Route>
         <Route path="/projects" element={<Projects />} />
       </Routes>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

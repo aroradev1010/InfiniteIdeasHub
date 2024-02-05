@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
-import CallToAction from "../components/CallToAction";
 import { useEffect, useState } from "react";
-import PostCard from "../components/PostCard";
 import "../css/homepage.css";
 import Posts from "../components/Posts";
-import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
 export default function Home() {
@@ -27,7 +23,7 @@ export default function Home() {
       setPosts(data.posts);
       if (!res.ok) {
         retrun;
-        console.log("Error fetching posts");
+        setError("Couldn't fetch posts, try again later.");
       }
     };
     try {
@@ -48,8 +44,8 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2">
               <span className="headerTitleLg font-bold">
-                Why do programmers prefer dark mode?
-                <p>Because light attracts bugs!</p>
+                How do you comfort a JavaScript bug?
+                <p>You console it!</p>
               </span>
               <span className="text-gray-400 text-[1rem] font-bold mt-2 mb-2">
                 Dev Arora || {formattedDate}
@@ -63,8 +59,6 @@ export default function Home() {
         <h1>{error}</h1>
         <div className="home mt-40">
           <Posts post={posts} />
-
-          {/* <Sidebar /> */}
         </div>
       </div>
     </>

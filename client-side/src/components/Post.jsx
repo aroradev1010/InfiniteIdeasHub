@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/post.css";
 import { timeSince } from "../utils/FormatDate";
 
-export default function Post({ img, postData }) {
-  // console.log(postData);
+export default function Post({ postData }) {
   return (
     <Link to={`/post/${postData.slug}`}>
       <div className="post">

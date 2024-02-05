@@ -1,9 +1,6 @@
-import { Button, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import CallToAction from "../components/CallToAction";
+import { useParams } from "react-router-dom";
 import CommentSection from "../components/CommentSection";
-import PostCard from "../components/PostCard";
 import Sidebar from "../components/Sidebar";
 import SinglePost from "../components/SinglePost";
 import Header from "../components/Header.jsx";
@@ -61,7 +58,13 @@ export default function PostPage() {
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner size="xl" />
+        loading...
+      </div>
+    );
+  if (error)
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        Error occured while fetching elements, please try again later
       </div>
     );
   return (

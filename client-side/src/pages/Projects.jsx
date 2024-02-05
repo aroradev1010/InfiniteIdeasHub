@@ -1,5 +1,3 @@
-import CallToAction from "../components/CallToAction";
-
 export default function Projects({ className }) {
   return (
     <div

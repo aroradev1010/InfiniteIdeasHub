@@ -9,7 +9,6 @@ import {
 } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { signoutSuccess } from "../redux/user/userSlice";
