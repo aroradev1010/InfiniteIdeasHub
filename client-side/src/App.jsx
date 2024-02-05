@@ -13,17 +13,29 @@ import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
 import ScrollToTop from "./components/ScrollToTop";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header />
+      
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/*" element={<ErrorPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route
+          path="/sign-in"
+          element={currentUser ? <Navigate to="/" /> : <SignIn />}
+        />
+        <Route
+          path="/sign-up"
+          element={currentUser ? <Navigate to="/" /> : <SignUp />}
+        />
         <Route path="/post/:postSlug" element={<PostPage />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -34,7 +46,7 @@ function App() {
         </Route>
         <Route path="/projects" element={<Projects />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

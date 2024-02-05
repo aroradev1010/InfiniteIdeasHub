@@ -10,9 +10,9 @@ PersistGate;
 ReactDOM.createRoot(document.getElementById("root")).render(
   <PersistGate persistor={persistor}>
     <Provider store={store}>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      {/* <ThemeProvider> */}
+      <App />
+      {/* </ThemeProvider> */}
     </Provider>
   </PersistGate>
 );

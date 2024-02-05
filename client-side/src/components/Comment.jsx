@@ -54,7 +54,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="flex p-4 border-b dark:border-gray-600 text-sm">
+    <div className="flex p-4 border-b dark:border-gray-600 text-sm ml-10">
       <div className="flex-shrink-0 mr-3">
         <img
           className="w-10 h-10 rounded-full bg-gray-200"
@@ -64,7 +64,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
       </div>
       <div className="flex-1">
         <div className="flex items-center mb-1">
-          <span className="font-bold mr-1 text-xs truncate">
+          <span className="font-bold mr-1 text-sm truncate">
             {user ? `@${user.username}` : "anonymous user"}
           </span>
           <span className="text-gray-500 text-xs">
@@ -82,7 +82,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
               <Button
                 type="button"
                 size="sm"
-                gradientDuoTone="purpleToBlue"
+                gradientDuoTone="pinkToOrange"
                 onClick={handleSave}
               >
                 Save
@@ -90,7 +90,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
               <Button
                 type="button"
                 size="sm"
-                gradientDuoTone="purpleToBlue"
+                gradientDuoTone="pinkToOrange"
                 outline
                 onClick={() => setIsEditing(false)}
               >
@@ -100,12 +100,12 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
           </>
         ) : (
           <>
-            <p>{comment.content}</p>
-            <div className="flex items-center pt-2 text-xs border-t dark:border-gray-700 max-w-fit gap-2">
+            <p className="text-[1rem] mt-2 ml-1">{comment.content}</p>
+            <div className="flex items-center pt-2 border-t dark:border-gray-700 max-w-fit gap-2">
               <button
                 type="button"
                 onClick={() => onLike(comment._id)}
-                className={`text-gray-400 hover:text-blue-500 ${
+                className={` text-gray-400 hover:text-blue-500 ${
                   currentUser &&
                   comment.likes.includes(currentUser._id) &&
                   "!text-blue-500"
