@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://infinite-ideas-hub.vercel.app",
-        secure: true,
+        secure: false,
       },
     },
   },
