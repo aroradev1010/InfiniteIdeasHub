@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 dotenv.config();
 
@@ -19,11 +20,23 @@ mongoose
   });
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "https://infinite-ideas-hub-frontend.vercel.app/",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000!");
+});
+
+app.get("/", (req, res) => {
+  res.json("Server is Working");
 });
 
 app.use("/api/user", userRoutes);
