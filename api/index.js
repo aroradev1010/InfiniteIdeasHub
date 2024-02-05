@@ -24,7 +24,7 @@ const app = express();
 app.use(
   cors({
     origin:
-      "https://65c116e108cdd810f97f7b6f--voluble-kangaroo-ba56e6.netlify.app",
+      "https://65c11a3785058614d7459a3e--chimerical-dango-7b0d8d.netlify.app/",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,

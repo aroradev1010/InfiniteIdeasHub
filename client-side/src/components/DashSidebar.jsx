@@ -28,7 +28,7 @@ export default function DashSidebar() {
 
   const handleSignOut = async () => {
     try {
-      const res = await fetch("/api/user/signout", {
+      const res = await fetch("https://infiniteideashub.onrender.com/api/user/signout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
