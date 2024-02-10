@@ -17,7 +17,7 @@ export default function PostPage() {
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:3000/api/post/getposts?slug=${postSlug}`);
+        const res = await fetch(`https://infiniteideashub.onrender.com/api/post/getposts?slug=${postSlug}`);
         const data = await res.json();
         if (!res.ok) {
           setError(true);
@@ -42,7 +42,7 @@ export default function PostPage() {
     try {
       const fetchRecentPosts = async () => {
         const res = await fetch(
-          `http://localhost:3000/api/post/getposts?startIndex=${randomNumber}&limit=3`
+          `https://infiniteideashub.onrender.com/api/post/getposts?startIndex=${randomNumber}&limit=3`
         );
         const data = await res.json();
         if (res.ok) {
