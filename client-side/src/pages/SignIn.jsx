@@ -11,22 +11,27 @@ export default function SignIn() {
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!formData.email || !formData.password) {
       setErrorMessage("All fields are required");
     }
     try {
       dispatch(signInStart());
-      const res = await fetch("https://infiniteideashub.onrender.com/api/auth/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://infiniteideashub.onrender.com/api/auth/signin",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         setErrorMessage(data.message);
@@ -34,6 +39,7 @@ export default function SignIn() {
 
       if (res.ok) {
         dispatch(signInSuccess(data));
+        setLoading(false);
         navigate("/");
       }
     } catch (error) {
