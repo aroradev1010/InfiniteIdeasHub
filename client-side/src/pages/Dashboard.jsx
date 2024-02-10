@@ -19,7 +19,7 @@ const Dashboard = () => {
       setTab(tabFromUrl);
     }
   }, [location.search]);
-  console.log(isOpen);
+
   return (
     <>
       <Header />
