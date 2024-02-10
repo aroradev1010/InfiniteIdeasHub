@@ -29,7 +29,7 @@ export default function UpdatePost() {
     try {
       const fetchPost = async () => {
         const res = await fetch(
-          `https://infiniteideashub.onrender.com/api/post/getposts?postId=${postId}`
+          `http://localhost:3000/api/post/getposts?postId=${postId}`
         );
         const data = await res.json();
         if (!res.ok) {
@@ -89,7 +89,7 @@ export default function UpdatePost() {
     e.preventDefault();
     try {
       const res = await fetch(
-        `https://infiniteideashub.onrender.com/api/post/updatepost/${formData._id}/${currentUser._id}`,
+        `http://localhost:3000/api/post/updatepost/${formData._id}/${currentUser._id}`,
         {
           method: "PUT",
           headers: {

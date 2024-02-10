@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await fetch(
-        "https://infiniteideashub.onrender.com/api/post/getPosts"
+        "http://localhost:3000/api/post/getPosts"
       );
       const data = await res.json();
       setPosts(data.posts);

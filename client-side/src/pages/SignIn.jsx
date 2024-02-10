@@ -1,49 +1,49 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signInSuccess, signInStart } from "../redux/user/userSlice";
+import {
+  signInSuccess,
+  signInStart,
+  signInFailure,
+} from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import OAuth from "../components/OAuth";
+import { useSelector } from "react-redux";
 
 import "../css/signin.css";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     if (!formData.email || !formData.password) {
-      setErrorMessage("All fields are required");
+      return dispatch(signInFailure("Please fill all the fields"));
     }
     try {
       dispatch(signInStart());
-      const res = await fetch(
-        "https://infiniteideashub.onrender.com/api/auth/signin",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/auth/signin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
       const data = await res.json();
-      if (data.success === false) {
-        setErrorMessage(data.message);
+      if (!res.ok) {
+        console.log(data.message);
+        dispatch(signInFailure(data.message));
       }
 
       if (res.ok) {
         dispatch(signInSuccess(data));
-        setLoading(false);
         navigate("/");
       }
     } catch (error) {
-      setErrorMessage(error.message);
+      dispatch(signInFailure(error.message));
     }
   };
   return (
