@@ -6,8 +6,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://infiniteideashub.onrender.com",
-        secure: true,
+        target: "http://localhost:3000",
+        secure: false,
       },
     },
   },
