@@ -80,7 +80,8 @@ export default function SignIn() {
           </div>
 
           <button type="submit" class="form-submit-btn">
-            {loading ? <>loading....</> : <>Sign In</>}
+            Sign In
+            {/* {loading ? <>loading....</> : <>Sign In</>} */}
           </button>
           {errorMessage && (
             <div
