@@ -38,12 +38,12 @@ export default function Home() {
       <Header />
       <div className="">
         <div className="header ">
-          <div className="headerTitles ">
-            <div className="my-5 border bg-[#222222] text-white max-w-fit px-5 py-1 rounded-2xl font-bold text-[10px]">
+          <div className="headerTitles">
+            <div className="my-5 border bg-[#222222] text-white max-w-fit px-5 py-1 rounded-2xl font-bold text-[10px]  ">
               <h1>InfiniteIdeasHub</h1>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="headerTitleLg font-bold">
+              <span className="headerTitleLg font-bold mobile:text-[15px] tablet:text-[20px]">
                 How do you comfort a JavaScript bug?
                 <p>You console it!</p>
               </span>
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </div>
         <h1>{error}</h1>
-        <div className="home mt-40">
+        <div className="mt-40 ">
           <Posts post={posts} />
         </div>
       </div>

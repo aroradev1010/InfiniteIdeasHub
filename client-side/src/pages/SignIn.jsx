@@ -43,7 +43,7 @@ export default function SignIn() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <Link to={"/"}>
-        <h1 className="absolute left-20 top-12 font-bold text-[1.5rem] cursor-pointer">
+        <h1 className="absolute left-20 top-12 font-bold text-[1.5rem] cursor-pointer ">
           InfiniteIdeasHub
         </h1>
       </Link>

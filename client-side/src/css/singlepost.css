@@ -15,6 +15,7 @@
   height: 500px;
 
   border-radius: 5px;
+
   
 }
 
@@ -58,8 +59,13 @@
 .singlePostDesc {
   color: #666;
   font-size: 20px;
-  
+
   line-height: 3rem;
+}
+
+@media (max-width: 420px) {
+  .singlePost {
+  }
 }
 
 .singlePostDesc::first-letter {

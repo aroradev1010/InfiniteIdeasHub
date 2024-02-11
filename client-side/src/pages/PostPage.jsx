@@ -70,9 +70,9 @@ export default function PostPage() {
   return (
     <>
       <Header />
-      <div className="single md:flex ml-10">
+      <div className="single md:flex">
         <SinglePost post={post} />
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
       <div className="flex flex-col justify-center items-center mb-5">
         <h1 className="text-4xl my-10 font-bold">Recent articles</h1>

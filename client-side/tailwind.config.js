@@ -7,6 +7,16 @@ export default {
   ],
   theme: {
     extend: {},
+    screens: {
+      mobile: "320px",
+      // => @media (min-width: 320px) { ... }
+
+      tablet: "540px",
+      // => @media (min-width: 540px) { ... }
+
+      desktop: "874px",
+      // => @media (min-width: 874px) { ... }
+    },
   },
   plugins: [require("flowbite/plugin"), require("tailwind-scrollbar")],
 };

@@ -19,6 +19,16 @@
   justify-content: center;
 }
 
+@media (max-width: 420px) {
+  .topLeft{
+    display: none;
+  }
+
+  .topCenter{
+    display: flex;
+  }
+}
+
 .topLeft {
   font-size: 18px;
 
@@ -51,7 +61,7 @@
   font-weight: 300;
   cursor: pointer;
   color: #222222;
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 .topListItem:hover {
