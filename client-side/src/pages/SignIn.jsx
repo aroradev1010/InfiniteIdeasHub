@@ -1,20 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  signInSuccess,
-  signInStart,
-  signInFailure,
-} from "../redux/user/userSlice";
+import { signInSuccess, signInStart } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import OAuth from "../components/OAuth";
-import { useSelector } from "react-redux";
 
 import "../css/signin.css";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -23,19 +18,18 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return dispatch(signInFailure("Please fill all the fields"));
+      setErrorMessage("All fields are required");
     }
     try {
       dispatch(signInStart());
-      const res = await fetch("https://infiniteideashub.onrender.com/api/auth/signin", {
+      const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      if (!res.ok) {
-        console.log(data.message);
-        dispatch(signInFailure(data.message));
+      if (data.success === false) {
+        setErrorMessage(data.message);
       }
 
       if (res.ok) {
@@ -43,7 +37,7 @@ export default function SignIn() {
         navigate("/");
       }
     } catch (error) {
-      dispatch(signInFailure(error.message));
+      setErrorMessage(error.message);
     }
   };
   return (
