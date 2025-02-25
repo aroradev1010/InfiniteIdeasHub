@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="express" />
   </div>
 
-  <h3 align="center">A 3D Dev Portfolio</h3>
+  <h3 align="center">A AI Powered Blogging Platform</h3>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
